@@ -37,7 +37,7 @@ public class Cliente extends javax.swing.JInternalFrame {
         btn_agregar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
-        tf_busq = new javax.swing.JTextField();
+        txt_busq = new javax.swing.JTextField();
         btn_buscar = new javax.swing.JButton();
         btn_inab = new javax.swing.JButton();
         btn_nuevo = new javax.swing.JButton();
@@ -66,7 +66,23 @@ public class Cliente extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Compra Anual");
 
-        btn_agregar.setText("Agregar");
+        txt_nombre.setEnabled(false);
+
+        txt_apellido.setEnabled(false);
+
+        txt_cedula.setEnabled(false);
+
+        txt_direccion.setEnabled(false);
+
+        txt_telefono.setEnabled(false);
+
+        txt_compra.setEnabled(false);
+
+        cbx_provincia.setEnabled(false);
+        cbx_provincia.setFocusable(false);
+
+        btn_agregar.setText("Guardar");
+        btn_agregar.setEnabled(false);
         btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_agregarActionPerformed(evt);
@@ -74,6 +90,7 @@ public class Cliente extends javax.swing.JInternalFrame {
         });
 
         btn_eliminar.setText("Eliminar");
+        btn_eliminar.setEnabled(false);
         btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_eliminarActionPerformed(evt);
@@ -81,13 +98,17 @@ public class Cliente extends javax.swing.JInternalFrame {
         });
 
         btn_modificar.setText("Modificar");
+        btn_modificar.setEnabled(false);
         btn_modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_modificarActionPerformed(evt);
             }
         });
 
+        txt_busq.setEnabled(false);
+
         btn_buscar.setText("Buscar");
+        btn_buscar.setEnabled(false);
         btn_buscar.setName(""); // NOI18N
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,92 +136,119 @@ public class Cliente extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(24, 24, 24)
+                                    .addComponent(jLabel4)
+                                    .addGap(3, 3, 3))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel1))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btn_nuevo)))
+                        .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5))
-                                .addGap(3, 3, 3))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel1))))
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbx_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(177, 177, 177)
+                                    .addComponent(btn_eliminar)
+                                    .addGap(195, 195, 195)
+                                    .addComponent(btn_inab))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jLabel5)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btn_buscar)
+                                    .addGap(12, 12, 12)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_nuevo)))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_agregar)
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_eliminar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_modificar)
-                        .addGap(25, 25, 25)
-                        .addComponent(btn_inab))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_direccion)
-                            .addComponent(txt_telefono)
-                            .addComponent(txt_compra)
-                            .addComponent(cbx_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16)
-                        .addComponent(tf_busq, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
-                        .addComponent(btn_buscar)))
-                .addGap(890, 890, 890))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_agregar)
+                            .addComponent(btn_modificar))
+                        .addGap(278, 278, 278)))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_agregar)
-                    .addComponent(btn_nuevo)
-                    .addComponent(btn_eliminar)
-                    .addComponent(btn_modificar)
-                    .addComponent(btn_inab))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_nuevo)
+                            .addComponent(btn_eliminar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_inab)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 514, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(tf_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel1))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(cbx_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txt_compra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(496, 496, 496))
+                    .addComponent(jLabel4)
+                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbx_provincia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txt_compra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(btn_agregar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_modificar)))
+                .addGap(488, 488, 488))
         );
 
         pack();
@@ -209,7 +257,7 @@ public class Cliente extends javax.swing.JInternalFrame {
 //metodo que inserta informacion en la tabla cliente si no existe
     public void inserttb(){
         try{
-            URL = "jdbc:mysql://localhost:3306/semestral";
+            URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
@@ -225,6 +273,7 @@ public class Cliente extends javax.swing.JInternalFrame {
             else{
                 stmt.executeUpdate("INSERT INTO `cliente` (`NOMBRE`, `APELLIDO`, `CEDULA`, `DIRECCION`, `TELEFONO`, `provincia`, `compraAnual`) VALUES ('"+txt_nombre.getText()+"', '"+txt_apellido.getText()+"', '"+txt_cedula.getText()+"', '"+txt_direccion.getText()+"', '"+txt_telefono.getText()+"', '"+String.valueOf(cbx_provincia.getSelectedIndex()+1)+"', '"+txt_compra.getText()+"');");
                 cargar();
+                JOptionPane.showMessageDialog(null,"Registrado satisfactoriamente");
             }
             rsC.close();
         }
@@ -240,7 +289,7 @@ public class Cliente extends javax.swing.JInternalFrame {
 //Carga la informacion que contiene la tabla cliente
     public void cargar(){
         try{
-            URL = "jdbc:mysql://localhost:3306/semestral";
+            URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
@@ -267,7 +316,7 @@ public class Cliente extends javax.swing.JInternalFrame {
     //Metodo que muestra en la base de datos
     public void Mostrar(){
         try{
-            URL = "jdbc:mysql://localhost:3306/semestral";
+            URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
@@ -305,20 +354,20 @@ public class Cliente extends javax.swing.JInternalFrame {
     public void infoprovincia()
     {
         try{
-            URL = "jdbc:mysql://localhost:3306/semestral";
+            URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
             Class.forName("com.mysql.jdbc.Driver");
             Connection conCBX = DriverManager.getConnection(URL,user,pass);
             stmtCBX = conCBX.createStatement();
-            ResultSet rsCBX = stmtCBX.executeQuery("SELECT Provincia FROM provincia");
+            ResultSet llcaja = stmtCBX.executeQuery("SELECT Provincia FROM provincia");
             
-            while (rsCBX.next())
+            while (llcaja.next())
             {
-                cbx_provincia.addItem(rsCBX.getString(1));
+                cbx_provincia.addItem(llcaja.getString(1));
             }
-            rsCBX.close();
+            llcaja.close();
         }
         catch(ClassNotFoundException ce){
                 ce.printStackTrace();
@@ -329,32 +378,10 @@ public class Cliente extends javax.swing.JInternalFrame {
     }
     
     
-    //Metodo para Eliminar
-    public void eliminar(){
-        try{
-            URL = "jdbc:mysql://localhost:3306/semestral";
-            user = "root";
-            pass = "";
-            
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL,user,pass);
-            stmt = con.createStatement();
-            stmt.executeUpdate("DELETE * FROM cliente WHERE CEDULA = '"+tf_busq.getText()+"'");
-            cargar();
-            btn_agregar.setEnabled(true);
-            
-        }
-        catch(ClassNotFoundException ce){
-                ce.printStackTrace();
-        }
-        catch(SQLException se){
-            se.printStackTrace();
-        }
-    }
-    //Metodo para modificar
+        //Metodo para modificar
     public void modificar(){
         try{
-            URL = "jdbc:mysql://localhost:3306/semestral";
+            URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
@@ -365,7 +392,8 @@ public class Cliente extends javax.swing.JInternalFrame {
                 +"SET NOMBRE = '"+txt_nombre.getText()+"',APELLIDO = '"+txt_apellido.getText()+"',CEDULA = '"+txt_cedula.getText()+"'"
                 +",DIRECCION = '"+txt_direccion.getText()+"',TELEFONO = '"+txt_telefono.getText()+"'"
                 +", provincia = '"+(cbx_provincia.getSelectedIndex()+1)+"',compraAnual = '"+txt_compra.getText()+"'"
-                +"WHERE CEDULA = '"+tf_busq.getText()+"'");
+                +"WHERE CEDULA = '"+txt_busq.getText()+"'");
+            JOptionPane.showMessageDialog(null,"Registro modificado");
             
         }
         catch(ClassNotFoundException ce){
@@ -373,19 +401,19 @@ public class Cliente extends javax.swing.JInternalFrame {
         }
         catch(SQLException se){
             se.printStackTrace();
-            JOptionPane.showMessageDialog(null,"No se aceptan campos vacios" + se);
+            JOptionPane.showMessageDialog(null,"No se aceptan campos vacios");
         }
     }
     //Metodo para buscar
     public void buscar()
     {
     System.out.print("Entra al metodo buscar");
-    String cip = tf_busq.getText().toString();
-    System.out.print(tf_busq+"\n"+cip+"\t");
+    String cip = txt_busq.getText().toString();
+    System.out.print(txt_busq+"\n"+cip+"\t");
     
          try{   
             
-         URL = "jdbc:mysql://localhost:3306/semestral";
+         URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
@@ -395,7 +423,7 @@ public class Cliente extends javax.swing.JInternalFrame {
             System.out.print("Entra al try");         
             System.out.print(cip);
             //stmt =con.createStatement();
-            ResultSet rsC = stmt.executeQuery("SELECT * FROM cliente WHERE cedula = '"+tf_busq.getText().toString()+"'");
+            ResultSet rsC = stmt.executeQuery("SELECT * FROM cliente WHERE cedula = '"+txt_busq.getText().toString()+"'");
             System.out.print(rsC);
             System.out.print("Realiza la busqueda");
             if(rsC.next()){
@@ -412,7 +440,7 @@ public class Cliente extends javax.swing.JInternalFrame {
                 txt_nombre.setEnabled(true);
                 txt_apellido.setEnabled(true);
                 txt_direccion.setEnabled(true);
-                tf_busq.setEnabled(false);
+                txt_busq.setEnabled(false);
                 cbx_provincia.setEnabled(true);
                 txt_compra.setEnabled(true);
                 txt_telefono.setEnabled(true);
@@ -434,10 +462,36 @@ public class Cliente extends javax.swing.JInternalFrame {
                 ce.printStackTrace();
         }
         catch(SQLException se){
-            JOptionPane.showMessageDialog(null,"No se encontro el registro " + se);
+            JOptionPane.showMessageDialog(null,"Registro inexistente");
         }
     }
-        
+    
+    //Metodo para Eliminar
+    public void eliminar(){
+        try{
+            URL = "jdbc:mysql://localhost:3306/java";
+            user = "root";
+            pass = "";
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL,user,pass);
+            stmt = con.createStatement();
+            stmt.executeUpdate("DELETE FROM cliente WHERE CEDULA = '"+txt_busq.getText()+"'");
+            cargar();
+            btn_agregar.setEnabled(true);
+            JOptionPane.showMessageDialog(null,"Registro Eliminado");
+            limpiar();
+            btn_eliminar.setEnabled(false);
+            btn_modificar.setEnabled(false);
+        }
+        catch(ClassNotFoundException ce){
+                ce.printStackTrace();
+        }
+        catch(SQLException se){
+            se.printStackTrace();
+        }
+    }
+       
     public void limpiar()
     {
                 txt_cedula.setText(null);
@@ -447,29 +501,62 @@ public class Cliente extends javax.swing.JInternalFrame {
                // cbx_provincia.setText(null);
                 txt_compra.setText(null);
                 txt_telefono.setText(null);
-                tf_busq.setText(null);
+                txt_busq.setText(null);
     }
     
-    public void HabilitarCampos()
+    public void deshabilitar()
     {
-        txt_cedula.setEnabled(false);
+                txt_cedula.setEnabled(false);
                 txt_nombre.setEnabled(false);
                 txt_apellido.setEnabled(false);
                 txt_direccion.setEnabled(false);
                 cbx_provincia.setEnabled(false);
                 txt_compra.setEnabled(false);
                 txt_telefono.setEnabled(false);
-                tf_busq.setEnabled(true);
+                txt_busq.setEnabled(true);
                 btn_eliminar.setEnabled(false);
                 btn_modificar.setEnabled(false);
                 btn_agregar.setEnabled(false);
                 btn_buscar.setEnabled(true);
                 btn_inab.setEnabled(false);
     }
+    
+    public void deshabilitartext()
+    {
+                txt_cedula.setEnabled(false);
+                txt_nombre.setEnabled(false);
+                txt_apellido.setEnabled(false);
+                txt_direccion.setEnabled(false);
+                txt_compra.setEnabled(false);
+                txt_telefono.setEnabled(false);
+                cbx_provincia.setEnabled(false);
+                txt_busq.setEnabled(false);
+    }
+    
+    public void habilitarnuevo()
+    {
+                txt_cedula.setEnabled(true);
+                txt_nombre.setEnabled(true);
+                txt_apellido.setEnabled(true);
+                txt_direccion.setEnabled(true);
+                cbx_provincia.setEnabled(true);
+                txt_compra.setEnabled(true);
+                txt_telefono.setEnabled(true);
+                txt_busq.setEnabled(false);
+                btn_eliminar.setEnabled(false);
+                btn_modificar.setEnabled(false);
+                btn_agregar.setEnabled(true);
+                btn_buscar.setEnabled(false);
+                btn_inab.setEnabled(true);
+    }
+    
+    
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
         inserttb();
-        btn_eliminar.setEnabled(true);
-        btn_modificar.setEnabled(true);
+        btn_eliminar.setEnabled(false);
+        btn_modificar.setEnabled(false);
+        btn_agregar.setEnabled(false);
+        limpiar();
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
@@ -481,35 +568,31 @@ public class Cliente extends javax.swing.JInternalFrame {
         modificar();
         cargar();
         btn_agregar.setEnabled(true);
+        btn_eliminar.setEnabled(false);
+        btn_modificar.setEnabled(false);
+        deshabilitartext();
+        limpiar();
     }//GEN-LAST:event_btn_modificarActionPerformed
 
     private void btn_inabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inabActionPerformed
         // TODO add your handling code here:
         limpiar();
-        HabilitarCampos();
+        deshabilitar();
     }//GEN-LAST:event_btn_inabActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
         // TODO add your handling code here:
         buscar();
+        infoprovincia();
+        btn_inab.setEnabled(true);
+        btn_agregar.setEnabled(false);
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
         // TODO add your handling code her
         limpiar();
-                txt_cedula.setEnabled(true);
-                txt_nombre.setEnabled(true);
-                txt_apellido.setEnabled(true);
-                txt_direccion.setEnabled(true);
-                cbx_provincia.setEnabled(true);
-                txt_compra.setEnabled(true);
-                txt_telefono.setEnabled(true);
-                tf_busq.setEnabled(false);
-                btn_eliminar.setEnabled(false);
-                btn_modificar.setEnabled(false);
-                btn_agregar.setEnabled(true);
-                btn_buscar.setEnabled(false);
-                btn_inab.setEnabled(true);
+        infoprovincia();
+        habilitarnuevo();        
     }//GEN-LAST:event_btn_nuevoActionPerformed
 
 
@@ -528,8 +611,8 @@ public class Cliente extends javax.swing.JInternalFrame {
     public javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
-    public javax.swing.JTextField tf_busq;
     public javax.swing.JTextField txt_apellido;
+    public javax.swing.JTextField txt_busq;
     public javax.swing.JTextField txt_cedula;
     public javax.swing.JTextField txt_compra;
     public javax.swing.JTextField txt_direccion;

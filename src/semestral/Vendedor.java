@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 public class Vendedor extends javax.swing.JInternalFrame {
         ResultSet rsC; 
     String URL, user, pass;
-    Statement stmt,stmtCBX;
+    Statement stmt,stmdep;
     
     
     public Vendedor () {
@@ -37,12 +37,12 @@ public class Vendedor extends javax.swing.JInternalFrame {
         txt_cargo = new javax.swing.JTextField();
         txt_Vmensual = new javax.swing.JTextField();
         txt_Vanual = new javax.swing.JTextField();
-        btn_agregar = new javax.swing.JButton();
+        btn_guardar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
         btn_nuevo = new javax.swing.JButton();
         btn_buscar = new javax.swing.JButton();
-        tf_busq = new javax.swing.JTextField();
+        txt_buscar = new javax.swing.JTextField();
         btn_inab = new javax.swing.JButton();
 
         setClosable(true);
@@ -64,11 +64,23 @@ public class Vendedor extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Venta Anual");
 
-        btn_agregar.setText("Agregar");
-        btn_agregar.setEnabled(false);
-        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+        txt_codigo.setEnabled(false);
+
+        txt_nombre.setEnabled(false);
+
+        txt_apellido.setEnabled(false);
+
+        txt_cargo.setEnabled(false);
+
+        txt_Vmensual.setEnabled(false);
+
+        txt_Vanual.setEnabled(false);
+
+        btn_guardar.setText("Guardar");
+        btn_guardar.setEnabled(false);
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_agregarActionPerformed(evt);
+                btn_guardarActionPerformed(evt);
             }
         });
 
@@ -103,6 +115,8 @@ public class Vendedor extends javax.swing.JInternalFrame {
             }
         });
 
+        txt_buscar.setEnabled(false);
+
         btn_inab.setText("Busqueda");
         btn_inab.setToolTipText("");
         btn_inab.addActionListener(new java.awt.event.ActionListener() {
@@ -116,58 +130,61 @@ public class Vendedor extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(41, 41, 41)
-                                        .addComponent(jLabel5))
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(6, 6, 6))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txt_Vmensual, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_cargo, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbx_departamento, javax.swing.GroupLayout.Alignment.LEADING, 0, 126, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_Vanual, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(txt_codigo))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(181, 181, 181)
-                                .addComponent(tf_busq, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(41, 41, 41)
+                                                .addComponent(jLabel5))
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGap(6, 6, 6))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txt_Vmensual, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_cargo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbx_departamento, javax.swing.GroupLayout.Alignment.LEADING, 0, 126, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
-                                .addComponent(btn_buscar))))
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_Vanual, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))
+                                .addGap(30, 30, 30)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txt_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                    .addComponent(txt_codigo))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(181, 181, 181)
+                                        .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btn_buscar))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_nuevo)
+                                .addGap(180, 180, 180)
+                                .addComponent(btn_eliminar)
+                                .addGap(71, 71, 71)
+                                .addComponent(btn_inab))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_nuevo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_agregar)
+                        .addGap(174, 174, 174)
+                        .addComponent(btn_guardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_modificar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_eliminar)
-                        .addGap(71, 71, 71)
-                        .addComponent(btn_inab)))
+                        .addComponent(btn_modificar)))
                 .addGap(829, 829, 829))
         );
         layout.setVerticalGroup(
@@ -175,16 +192,14 @@ public class Vendedor extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_agregar)
                     .addComponent(btn_eliminar)
-                    .addComponent(btn_modificar)
                     .addComponent(btn_nuevo)
                     .addComponent(btn_inab))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(tf_busq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_buscar))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -206,7 +221,11 @@ public class Vendedor extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
                     .addComponent(txt_Vanual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_guardar)
+                    .addComponent(btn_modificar))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         pack();
@@ -214,7 +233,7 @@ public class Vendedor extends javax.swing.JInternalFrame {
 
     public void cargarBD(){
         try{
-            URL = "jdbc:mysql://localhost:3306/semestral";
+            URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
@@ -236,22 +255,22 @@ public class Vendedor extends javax.swing.JInternalFrame {
         }
     }
     
-    public void cargarCBX(){
+    public void bxdepartamento(){
         try{
-           URL = "jdbc:mysql://localhost:3306/semestral";
+           URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conCBX = DriverManager.getConnection(URL,user,pass);
-            stmtCBX = conCBX.createStatement();
-            ResultSet rsCBX = stmtCBX.executeQuery("SELECT DEPARTAMENTO FROM departamento");
+            Connection condep = DriverManager.getConnection(URL,user,pass);
+            stmdep = condep.createStatement();
+            ResultSet rsdep = stmdep.executeQuery("SELECT DEPARTAMENTO FROM departamento");
             
-            while (rsCBX.next())
+            while (rsdep.next())
             {
-                cbx_departamento.addItem(rsCBX.getString(1));
+                cbx_departamento.addItem(rsdep.getString(1));
             }
-            rsCBX.close();
+            rsdep.close();
         }
        catch(ClassNotFoundException ce){
                 ce.printStackTrace();
@@ -261,9 +280,9 @@ public class Vendedor extends javax.swing.JInternalFrame {
         }
     }
     
-    public void buscarBD(){
+    public void buscarinfo(){
         try{
-            URL = "jdbc:mysql://localhost:3306/semestral";
+            URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
@@ -297,9 +316,9 @@ public class Vendedor extends javax.swing.JInternalFrame {
         }
     }
     
-    public void addBD(){
+    public void Insertarinfo(){
         try{
-            URL = "jdbc:mysql://localhost:3306/semestral";
+            URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
@@ -310,11 +329,12 @@ public class Vendedor extends javax.swing.JInternalFrame {
             
             if(rsC.next()){
                 JOptionPane.showMessageDialog(null,"El registro con esta codigo ya existe, puede borrarlo o modificarlo");
-                btn_agregar.setEnabled(false);
+                btn_guardar.setEnabled(false);
             }
             else{
-                stmt.executeUpdate("INSERT INTO vendedor (`CODIGO`, `NOMBRE`, `APELLIDO`, `departamento`, `CARGO`, `VENTAMENSUAL`, `VENTAANUAL`) VALUES ('"+txt_codigo.getText()+"', '"+txt_nombre.getText()+"', '"+txt_apellido.getText()+"', '"+String.valueOf(cbx_departamento.getSelectedIndex()+1)+"', '"+txt_cargo.getText()+"', '"+txt_Vmensual.getText()+"', '"+txt_Vanual.getText()+"')");
+                stmt.executeUpdate("INSERT INTO vendedor ( `CODIGO`, `NOMBRE`, `APELLIDO`, `departamento`, `CARGO`, `VENTAMENSUAL`, `VENTAANUAL`) VALUES (null, '"+txt_nombre.getText()+"', '"+txt_apellido.getText()+"', '"+String.valueOf(cbx_departamento.getSelectedIndex()+1)+"', '"+txt_cargo.getText()+"', '"+txt_Vmensual.getText()+"', '"+txt_Vanual.getText()+"')");
                 cargarBD();
+                JOptionPane.showMessageDialog(null,"Registro Agregado" );
             }
             rsC.close();
         }
@@ -327,9 +347,9 @@ public class Vendedor extends javax.swing.JInternalFrame {
         }
     }
     
-    public void eliminarBD(){
+    public void eliminar(){
         try{
-            URL = "jdbc:mysql://localhost:3306/semestral";
+            URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
@@ -338,7 +358,8 @@ public class Vendedor extends javax.swing.JInternalFrame {
             stmt = con.createStatement();
             stmt.executeUpdate("DELETE FROM vendedor WHERE vendedor.codigo = '"+txt_codigo.getText()+"'");
             cargarBD();
-            btn_agregar.setEnabled(true);
+            btn_guardar.setEnabled(true);
+            JOptionPane.showMessageDialog(null,"Registro Eliminado ");
             
         }
         catch(ClassNotFoundException ce){
@@ -349,9 +370,9 @@ public class Vendedor extends javax.swing.JInternalFrame {
         }
     }
     
-    public void modificarBD(){
+    public void Modificarinfo(){
         try{
-            URL = "jdbc:mysql://localhost:3306/semestral";
+            URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
@@ -362,8 +383,8 @@ public class Vendedor extends javax.swing.JInternalFrame {
                 +"SET NOMBRE = '"+txt_nombre.getText()+"', APELLIDO = '"+txt_apellido.getText()+"' ,departamento = '"+(cbx_departamento.getSelectedIndex()+1)+"'"
                 +", CARGO = '"+txt_cargo.getText()+"',VENTAMENSUAL = '"+txt_Vmensual.getText()+"'"
                 +", VENTAANUAL = '"+txt_Vanual.getText()+"' "
-                +"WHERE CODIGO = '"+tf_busq.getText()+"'");
-            
+                +"WHERE CODIGO = '"+txt_buscar.getText()+"'");
+            JOptionPane.showMessageDialog(null,"Registro Modificado");
         }
         catch(ClassNotFoundException ce){
                 ce.printStackTrace();
@@ -380,14 +401,14 @@ public class Vendedor extends javax.swing.JInternalFrame {
     
          try{   
             
-         URL = "jdbc:mysql://localhost:3306/semestral";
+         URL = "jdbc:mysql://localhost:3306/java";
             user = "root";
             pass = "";
             
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL,user,pass);
             stmt = con.createStatement();
-            ResultSet rsC = stmt.executeQuery("SELECT * FROM vendedor WHERE codigo = '"+tf_busq.getText().toString()+"'");
+            ResultSet rsC = stmt.executeQuery("SELECT * FROM vendedor WHERE codigo = '"+txt_buscar.getText().toString()+"'");
             System.out.print(rsC);
             System.out.print("Realiza la busqueda");
             if(rsC.next()){
@@ -404,20 +425,20 @@ public class Vendedor extends javax.swing.JInternalFrame {
                 txt_nombre.setEnabled(true);
                 txt_apellido.setEnabled(true);
                 txt_cargo.setEnabled(true);
-                tf_busq.setEnabled(false);
+                txt_buscar.setEnabled(false);
                 cbx_departamento.setEnabled(true);
                 txt_Vmensual.setEnabled(true);
                 txt_Vanual.setEnabled(true);
                 btn_eliminar.setEnabled(true);
                 btn_modificar.setEnabled(true);
-                btn_agregar.setEnabled(false);
+                btn_guardar.setEnabled(false);
                 btn_buscar.setEnabled(false);
                 btn_inab.setEnabled(false);
             }else{
                 JOptionPane.showMessageDialog(null,"No se encontro el registro, puede agragarlo si desea");
                 btn_eliminar.setEnabled(false);
                 btn_modificar.setEnabled(false);
-                btn_agregar.setEnabled(true);
+                btn_guardar.setEnabled(true);
                 btn_buscar.setEnabled(true);
             }
             rsC.close();
@@ -426,7 +447,7 @@ public class Vendedor extends javax.swing.JInternalFrame {
                 ce.printStackTrace();
         }
         catch(SQLException se){
-            JOptionPane.showMessageDialog(null,"No se encontro el registro " + se);
+            JOptionPane.showMessageDialog(null,"No se encontro el registro " );
         }
     }
     
@@ -436,13 +457,12 @@ public class Vendedor extends javax.swing.JInternalFrame {
                 txt_nombre.setText(null);
                 txt_apellido.setText(null);
                 txt_cargo.setText(null);
-               // cbx_provincia.setText(null);
                 txt_Vmensual.setText(null);
                 txt_Vanual.setText(null);
-                tf_busq.setText(null);
+                txt_buscar.setText(null);
     }
     
-    public void HabilitarCampos()
+    public void Deshabilitar()
     {
                 txt_codigo.setEnabled(false);
                 txt_nombre.setEnabled(false);
@@ -451,66 +471,99 @@ public class Vendedor extends javax.swing.JInternalFrame {
                 cbx_departamento.setEnabled(false);
                 txt_Vmensual.setEnabled(false);
                 txt_Vanual.setEnabled(false);
-                tf_busq.setEnabled(true);
+                txt_buscar.setEnabled(true);
                 btn_eliminar.setEnabled(false);
                 btn_modificar.setEnabled(false);
-                btn_agregar.setEnabled(false);
-                btn_buscar.setEnabled(true);
-                btn_inab.setEnabled(false);
+                btn_guardar.setEnabled(false);
+                btn_buscar.setEnabled(false);
+                btn_inab.setEnabled(true);
     }
-    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
-        modificarBD();
-        cargarBD();
-        btn_agregar.setEnabled(true);
-    }//GEN-LAST:event_btn_modificarActionPerformed
-
-    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
-        addBD();
-        btn_eliminar.setEnabled(true);
-        btn_modificar.setEnabled(true);
-    }//GEN-LAST:event_btn_agregarActionPerformed
-
-    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-        eliminarBD();
-        cargarCBX();
-        limpiar();
-    }//GEN-LAST:event_btn_eliminarActionPerformed
-
-    private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
-        // TODO add your handling code her
-        limpiar();
-        cargarCBX();
-        txt_codigo.setEnabled(true);
+    
+    public void habilitarnuevo()
+    {
+        txt_codigo.setEnabled(false);
         txt_nombre.setEnabled(true);
         txt_apellido.setEnabled(true);
         txt_Vmensual.setEnabled(true);
         cbx_departamento.setEnabled(true);
         txt_Vanual.setEnabled(true);
         txt_cargo.setEnabled(true);
-        tf_busq.setEnabled(false);
+        txt_buscar.setEnabled(false);
         btn_eliminar.setEnabled(false);
         btn_modificar.setEnabled(false);
-        btn_agregar.setEnabled(true);
+        btn_guardar.setEnabled(true);
         btn_buscar.setEnabled(false);
         btn_inab.setEnabled(true);
+    }
+    
+    public void deshabilitarnuevo()
+    {
+                txt_codigo.setEnabled(false);
+                txt_nombre.setEnabled(false);
+                txt_apellido.setEnabled(false);
+                txt_cargo.setEnabled(false);
+                cbx_departamento.setEnabled(false);
+                txt_Vmensual.setEnabled(false);
+                txt_Vanual.setEnabled(false);
+                txt_buscar.setEnabled(false);
+                btn_eliminar.setEnabled(false);
+                btn_modificar.setEnabled(false);
+                btn_guardar.setEnabled(false);
+                btn_buscar.setEnabled(true);
+                btn_inab.setEnabled(false);
+                btn_nuevo.setEnabled(true);
+    }
+    
+    
+    
+    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
+        Modificarinfo();
+        cargarBD();
+        Deshabilitar();
+        txt_buscar.setEnabled(false);
+        limpiar();
+    }//GEN-LAST:event_btn_modificarActionPerformed
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        Insertarinfo();
+        btn_eliminar.setEnabled(true);
+        btn_modificar.setEnabled(true);
+        Deshabilitar();
+    }//GEN-LAST:event_btn_guardarActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        eliminar();
+        bxdepartamento();
+        limpiar();
+        Deshabilitar();
+    }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
+        // TODO add your handling code her
+        limpiar();
+        bxdepartamento();
+        habilitarnuevo();
     }//GEN-LAST:event_btn_nuevoActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
         // TODO add your handling code here:
         buscar();
+         bxdepartamento();
+        txt_codigo.setEnabled(false);
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_inabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inabActionPerformed
         // TODO add your handling code here:
         limpiar();
-        HabilitarCampos();
+        Deshabilitar();
+        btn_buscar.setEnabled(true);
     }//GEN-LAST:event_btn_inabActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_agregar;
     public javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_eliminar;
+    private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_inab;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_nuevo;
@@ -522,10 +575,10 @@ public class Vendedor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField tf_busq;
     private javax.swing.JTextField txt_Vanual;
     private javax.swing.JTextField txt_Vmensual;
     private javax.swing.JTextField txt_apellido;
+    private javax.swing.JTextField txt_buscar;
     private javax.swing.JTextField txt_cargo;
     public javax.swing.JTextField txt_codigo;
     private javax.swing.JTextField txt_nombre;
