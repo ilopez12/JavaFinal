@@ -460,6 +460,7 @@ public class Vendedor extends javax.swing.JInternalFrame {
                 txt_Vmensual.setText(null);
                 txt_Vanual.setText(null);
                 txt_buscar.setText(null);
+                
     }
     
     public void Deshabilitar()
@@ -529,6 +530,8 @@ public class Vendedor extends javax.swing.JInternalFrame {
         btn_eliminar.setEnabled(true);
         btn_modificar.setEnabled(true);
         Deshabilitar();
+        
+        limpiar();
     }//GEN-LAST:event_btn_guardarActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
