@@ -4,11 +4,11 @@ import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
-/*import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;*/
+import net.sf.jasperreports.view.JasperViewer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -105,13 +105,13 @@ public class ReporteVendedor extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
-           /* String URL = "jdbc:mysql://localhost:3306/semestral";
+          String URL = "jdbc:mysql://localhost:3306/java";
             String user = "root";
             String pass = "";
             
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL,user,pass);
-            JasperReport reporteC =(JasperReport) JRLoader.loadObjectFromFile("C:\\Users\\artur\\Documents\\NetBeansProjects\\ProyectoNo3\\src\\Vendedor.jasper");
+            JasperReport reporteC =(JasperReport) JRLoader.loadObjectFromFile("C:\\Users\\215\\Documents\\NetBeansProjects\\Semestral\\src\\semestral\\RVendedor.jasper");
              Map <String,Object> parametro = new HashMap <String,Object>();
             if(JRB_apellido.isSelected()){
                 parametro.put("OrdenarPor","APELLIDO");
@@ -120,10 +120,10 @@ public class ReporteVendedor extends javax.swing.JInternalFrame {
                 jv.setTitle("Reporte Cliente por Apellido");
                 jv.setVisible(true);
             }else if(JRB_codigo.isSelected()){
-                parametro.put("OrdenarPor","CODIGo");
+                parametro.put("OrdenarPor","CODIGO");
                 JasperPrint j = JasperFillManager.fillReport(reporteC,parametro,con);
                 JasperViewer jv = new JasperViewer(j,false);
-                jv.setTitle("Reporte Cliente por Cedula");
+                jv.setTitle("Reporte Cliente por Codigo");
                 jv.setVisible(true);
             }else if(JRB_departamento.isSelected()){
                 parametro.put("OrdenarPor","DEPARTAMENTO");
@@ -131,10 +131,10 @@ public class ReporteVendedor extends javax.swing.JInternalFrame {
                 JasperViewer jv = new JasperViewer(j,false);
                 jv.setTitle("Reporte Cliente por Compra Anual");
                 jv.setVisible(true);
-            }*/
+            }
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Error al mostrar reporte cliente: "+e);
+            JOptionPane.showMessageDialog(null,"Error al mostrar reporte cliente: ");
         }  
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -4,11 +4,11 @@ import java.sql.DriverManager;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
-/*import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.view.JasperViewer;*/
+import net.sf.jasperreports.view.JasperViewer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -71,7 +71,7 @@ public class ReporteCliente extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(JRB_cedula)
                     .addComponent(JRB_compra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -102,13 +102,13 @@ public class ReporteCliente extends javax.swing.JInternalFrame {
 
     private void btn_reporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reporteActionPerformed
         try{
-           /* String URL = "jdbc:mysql://localhost:3306/semestral";
+           String URL = "jdbc:mysql://localhost:3306/java";
             String user = "root";
             String pass = "";
             
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL,user,pass);
-            JasperReport reporteC =(JasperReport) JRLoader.loadObjectFromFile("C:\\Users\\Usuario1\\Desktop\\SemestralDes\\SemestralDesarrollo\\src\\semestraldesarrollo\\RCliente.jasper");
+            JasperReport reporteC =(JasperReport) JRLoader.loadObjectFromFile("C:\\Users\\215\\Documents\\NetBeansProjects\\Semestral\\src\\semestral\\RCliente.jasper");
              Map <String,Object> parametro = new HashMap <String,Object>();
             if(JRB_apellido.isSelected()){
                 parametro.put("OrdenarPor","APELLIDO");
@@ -128,7 +128,7 @@ public class ReporteCliente extends javax.swing.JInternalFrame {
                 JasperViewer jv = new JasperViewer(j,false);
                 jv.setTitle("Reporte Cliente por Compra Anual");
                 jv.setVisible(true);
-            }*/
+            }
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error al mostrar reporte cliente: "+e);
